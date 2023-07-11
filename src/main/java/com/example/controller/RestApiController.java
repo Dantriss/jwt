@@ -1,4 +1,4 @@
-package com.example.jwt.controller;
+package com.example.controller;
 
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.web.bind.annotation.CrossOrigin;

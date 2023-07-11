@@ -1,8 +1,7 @@
-package com.example.jwt.config;
+package com.example.config;
 
-import com.example.jwt.filter.MyFilter1;
-import com.example.jwt.filter.MyFilter2;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
+import com.example.filter.MyFilter1;
+import com.example.filter.MyFilter2;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
