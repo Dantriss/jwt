@@ -1,5 +1,7 @@
 package com.example.jwt.config;
 
+import com.example.jwt.filter.MyFilter1;
+import com.example.jwt.filter.MyFilter3;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -18,7 +21,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception{
-
+        http.addFilterBefore(new MyFilter3(), BasicAuthenticationFilter.class);
         http.csrf().disable()
                 .addFilter(corsConfig.corsFilter())  //모든 요청이 해당 필터를 거치게 됨, @CrossOrigin(인증이 필요 없을때), 시큐리티 필터에 등록 (인증이 필요할때 addFilter)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)     //세션 만드는 방식 안씀
